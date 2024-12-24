@@ -1,6 +1,9 @@
 import ArticleSummary from "~/components/article-summary";
+import {useContext} from "react";
+import {HomepageContext} from "~/routes/home";
 
 export default function TrendingStories() {
+    const {message} = useContext(HomepageContext);
 
     return (
         <section className="lg:flex border-y border-y-[#072009] lg:max-h-screen mt-4 lg:mt-8">

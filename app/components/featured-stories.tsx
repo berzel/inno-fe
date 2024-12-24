@@ -40,8 +40,7 @@ export default function FeaturedStories() {
                     <div className="basis-[33.333%] border-[#072009] flex flex-col">
                         <a href="#" className="flex lg:block">
                             <h2 className="font-serif">
-                                Zim Govt Drops USD Tax By 75% In Over A Year: Were Domestic Remittance Volumes
-                                Declining?
+                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, quos?
                             </h2>
 
                             <div className="flex-shrink-0 h-20 w-20 ml-4 rounded-md overflow-hidden lg:hidden">
@@ -75,8 +74,7 @@ export default function FeaturedStories() {
                     <div className="basis-[33.333%] border-[#072009] flex flex-col">
                         <a href="#" className="flex lg:block">
                             <h2 className="font-serif">
-                                Zim Govt Drops USD Tax By 75% In Over A Year: Were Domestic Remittance Volumes
-                                Declining?
+                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, quos?
                             </h2>
 
                             <div className="flex-shrink-0 h-20 w-20 ml-4 rounded-md overflow-hidden lg:hidden">
@@ -110,8 +108,7 @@ export default function FeaturedStories() {
                     <div className="basis-[33.333%] border-[#072009] flex flex-col">
                         <a href="#" className="flex lg:block">
                             <h2 className="font-serif">
-                                Zim Govt Drops USD Tax By 75% In Over A Year: Were Domestic Remittance Volumes
-                                Declining?
+                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, quos?
                             </h2>
 
                             <div className="flex-shrink-0 h-20 w-20 ml-4 rounded-md overflow-hidden lg:hidden">
