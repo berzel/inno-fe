@@ -21,7 +21,7 @@ export default function Footer() {
             <div
                 className="lg:flex justify-between items-center border-t border-[#E9C46A] border-opacity-30 pt-8 mt-12">
                 <div>
-                    &copy; 2023 <a href="/" className="font-semibold">.zedw</a>. All Rights Reserved.
+                    &copy; 2023 <a href="/" className="font-semibold">.inno</a>. All Rights Reserved.
                 </div>
                 <ul className="flex justify-start lg:justify-end items-center space-x-4 lg:space-x-8 mt-4 lg:mt-0">
                     <li>

@@ -9,7 +9,7 @@ export default function CallToAction() {
                 </div>
                 <div className="basis-[33.333%] flex flex-col justify-end space-y-8 mt-4 lg:mt-0 lg:min-h-[24rem]">
                     <p className="pr-16">
-                        .zedw is a media and data insights company that provides market anaylsis of the Southern
+                        .inno is a media and data insights company that provides market anaylsis of the Southern
                         African Markets.
                     </p>
                     <div className="text-right">
