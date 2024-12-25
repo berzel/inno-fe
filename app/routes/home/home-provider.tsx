@@ -9,6 +9,8 @@ const HomepageProvider = ({ children }: PropsWithChildren) => {
     useEffect(() => {
         (async function() {
             const articles = await axios.get('/articles').then(r => r.data)
+
+            // Just selecting some random items from the result otherwise should populate from dedicated api calls
             setHomeProps({
                 trendingStories: articles.data.filter((_: Article, i: number) => i < 5),
                 topStories: articles.data.filter((_: Article, i: number) => i >= 5 && i < 10),
