@@ -11,7 +11,7 @@ const HomepageProvider = ({ children }: PropsWithChildren) => {
             const articles = await axios.get('/articles').then(r => r.data)
             setHomeProps({
                 trendingStories: articles.data.filter((_: Article, i: number) => i < 5),
-                topStories: articles.data.filter((_: Article, i: number) => i < 5)
+                topStories: articles.data.filter((_: Article, i: number) => i >= 5 && i < 10),
             })
         })()
     }, []);

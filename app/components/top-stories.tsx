@@ -1,8 +1,6 @@
 import ArticleSummary from "~/components/article-summary";
-import type {Article} from "~/types";
 import {useContext} from "react";
 import HomepageContext from "~/routes/home/home-context";
-
 
 export default function TopStories() {
     const {topStories} = useContext(HomepageContext);
