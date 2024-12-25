@@ -1,14 +1,14 @@
 import {Link} from "react-router";
 import type {ArticleSummaryProps} from "~/types";
 
-export default function ArticleSummary({variant} : ArticleSummaryProps) {
+export default function ArticleSummary({variant, article} : ArticleSummaryProps) {
     return (
         <>
-            <a href="#">
+            <Link to={`/articles/${article.slug}`}>
                 <h2 className={`font-serif ${variant === 'main' ? 'text-xl lg:text-3xl':''}`}>
-                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, quos?
+                    {article.title}
                 </h2>
-            </a>
+            </Link>
             <div className="mt-4 lg:mt-8 flex items-center justify-between">
                 <ul className="flex space-x-2">
                     <li>
