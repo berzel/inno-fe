@@ -26,10 +26,15 @@ export default function ArticleSummary({variant, article} : ArticleSummaryProps)
                     </div>
                 </div>
             </div>
-            <Link to="#" className="flex-grow bg-gray-200 mt-4 lg:mt-8 rounded-md overflow-hidden">
-                <img className="w-full h-full object-cover object-center aspect-video"
-                     src="https://placehold.co/1200x900/png" alt="Media"/>
-            </Link>
+
+            {
+                variant !== 'mini' && (
+                    <Link to="#" className="flex-grow bg-gray-200 mt-4 lg:mt-8 rounded-md overflow-hidden">
+                        <img className="w-full h-full object-cover object-center aspect-video"
+                             src="https://placehold.co/1200x900/png" alt="Media"/>
+                    </Link>
+                )
+            }
         </>
     )
 }

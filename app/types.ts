@@ -11,7 +11,7 @@ export type Category = {
 
 export type ArticleSummaryProps =  {
     article: Article,
-    variant?: 'main'|'featured',
+    variant?: 'main'|'featured'|'mini',
 }
 
 export type HomepageProps = {
