@@ -14,7 +14,7 @@ export default function ArticleSummary({variant, article} : ArticleSummaryProps)
                     <li>
                         <Link to="#"
                            className="text-[#E9C46A] border border-transparent hover:border-[#072009] hover:text-[#072009] bg-[#072009] hover:bg-[#E9C46A] rounded-full px-3 py-1 text-sm">
-                            Finance
+                            {article.category.name}
                         </Link>
                     </li>
                 </ul>

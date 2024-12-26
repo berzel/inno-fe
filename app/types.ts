@@ -1,5 +1,11 @@
 export type Article = {
     title: string,
+    slug: string,
+    category: Category,
+}
+
+export type Category = {
+    name: string,
     slug: string
 }
 
