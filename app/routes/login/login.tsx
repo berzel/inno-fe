@@ -5,8 +5,8 @@ export default function Login() {
         <div className="min-h-screen flex items-center justify-center">
             <div className="space-y-12">
                 <div className="border-b border-opacity-10 border-[#072009] py-4">
-                    <h1 className="font-semibold text-2xl">Login</h1>
-                    <p className="text-sm mt-2 text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <h1 className="font-semibold text-2xl">Login to your account</h1>
+                    <p className="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
                 <div className="space-y-6">
                     <div>
@@ -36,6 +36,10 @@ export default function Login() {
                             Login
                         </button>
                     </div>
+                </div>
+
+                <div className="text-center">
+                    Don't have an account? <br/> <Link to="/register" className="font-medium hover:underline">Register now</Link>
                 </div>
             </div>
         </div>
