@@ -1,10 +1,12 @@
 import axios from "~/lib/axios";
 import {AxiosError} from "axios";
-import React, {type FormEvent, useState} from "react";
+import React, {type FormEvent, useContext, useState} from "react";
 import {useNavigate} from "react-router";
+import AuthContext from "~/lib/auth-context";
+import useAuth from "~/hooks/useAuth";
 
 export default function useLogin() {
-    const navigate = useNavigate();
+    const {login} = useAuth();
 
     const [data, setData] = useState({
         email: '',
@@ -42,8 +44,7 @@ export default function useLogin() {
         const token = response.data?.token;
 
         if (token) {
-            localStorage.setItem('auth_token', token);
-            navigate('/');
+            login(token)
         }
     }
 

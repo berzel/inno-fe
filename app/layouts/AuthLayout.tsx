@@ -1,5 +1,5 @@
 import type {PropsWithChildren} from "react";
-import AuthProvider from "~/components/auth-provider";
+import AuthProvider from "~/lib/auth-provider";
 
 export default function AuthLayout({children}:PropsWithChildren) {
     return (

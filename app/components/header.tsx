@@ -1,11 +1,10 @@
 import Logo from "~/components/logo";
 import {Link} from "react-router";
 import TopCategories from "~/components/top-categories";
-import {useContext} from "react";
-import AuthContext from "~/components/auth-context";
+import useAuth from "~/hooks/useAuth";
 
 function LogoutButton() {
-    const {logout} = useContext(AuthContext);
+    const {logout} = useAuth();
 
     return (
         <button onClick={() => {logout()}}
@@ -16,7 +15,7 @@ function LogoutButton() {
 }
 
 export default function Header() {
-    const {loggedIn} = useContext(AuthContext);
+    const {loggedIn} = useAuth();
 
     return (
         <nav className="flex justify-between items-center relative">

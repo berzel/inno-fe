@@ -1,10 +1,10 @@
 import axios from "~/lib/axios";
 import {AxiosError} from "axios";
 import React, {type FormEvent, useState} from "react";
-import {useNavigate} from "react-router";
+import useAuth from "~/hooks/useAuth";
 
 export default function useRegister() {
-    const navigate = useNavigate();
+    const {login} = useAuth();
 
     const [data, setData] = useState({
         name: '',
@@ -33,6 +33,7 @@ export default function useRegister() {
             .then(response => response)
             .catch(error => error);
 
+
         setSubmitting(false);
 
         if (response.status >= 400) {
@@ -42,9 +43,10 @@ export default function useRegister() {
 
         const token = response.data?.token;
 
+        console.log(token)
+
         if (token) {
-            localStorage.setItem('auth_token', token);
-            navigate('/');
+            login(token)
         }
     }
 

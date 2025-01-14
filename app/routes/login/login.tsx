@@ -1,15 +1,15 @@
 import {Link, Navigate} from "react-router";
-import React, {useContext} from "react";
-import AuthContext from "~/components/auth-context";
+import React from "react";
 import AuthLayout from "~/layouts/AuthLayout";
 import useLogin from "~/hooks/useLogin";
+import useAuth from "~/hooks/useAuth";
 
-export default function Login() {
-    const {loggedIn} = useContext(AuthContext);
+function LoginPage() {
+    const {loggedIn} = useAuth();
     const {data, error, submitting, handleSubmit, handleChange} = useLogin();
 
     return (
-        <AuthLayout>
+        <>
             {
                 loggedIn ? (
                     <Navigate to={'/'} />
@@ -75,6 +75,14 @@ export default function Login() {
                     </div>
                 )
             }
+        </>
+    )
+}
+
+export default function Login() {
+    return (
+        <AuthLayout>
+            <LoginPage />
         </AuthLayout>
     )
 }

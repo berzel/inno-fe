@@ -1,16 +1,16 @@
 import {Link, Navigate} from "react-router";
-import React, {useContext} from "react";
+import React from "react";
 import useRegister from "~/hooks/useRegister";
-import AuthContext from "~/components/auth-context";
 import AuthLayout from "~/layouts/AuthLayout";
+import useAuth from "~/hooks/useAuth";
 
-export default function Register() {
-    const {loggedIn} = useContext(AuthContext);
+
+function RegisterPage() {
+    const {loggedIn} = useAuth();
     const {data, error, submitting, handleSubmit, handleChange} = useRegister();
 
-
     return (
-        <AuthLayout>
+        <>
             {
                 loggedIn ? (
                     <Navigate to={'/'} />
@@ -90,6 +90,14 @@ export default function Register() {
                     </div>
                 )
             }
+        </>
+    )
+}
+
+export default function Register() {
+    return (
+        <AuthLayout>
+            <RegisterPage />
         </AuthLayout>
     )
 }
