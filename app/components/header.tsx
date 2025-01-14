@@ -1,9 +1,23 @@
 import Logo from "~/components/logo";
 import {Link} from "react-router";
 import TopCategories from "~/components/top-categories";
+import {useContext} from "react";
+import AuthContext from "~/components/auth-context";
+
+function LogoutButton() {
+    const {logout} = useContext(AuthContext);
+
+    return (
+        <button onClick={() => {logout()}}
+              className="rounded-full border border-[#072009] px-4 py-1 hover:bg-[#072009] hover:text-[#E9C46A] flex">
+            Logout
+        </button>
+    )
+}
 
 export default function Header() {
-    
+    const {loggedIn} = useContext(AuthContext);
+
     return (
         <nav className="flex justify-between items-center relative">
             <div className="basis-[20%]">
@@ -43,18 +57,29 @@ export default function Header() {
                             </svg>
                         </button>
                     </li>
-                    <li>
-                        <Link to="/login"
-                              className="rounded-full border border-[#072009] px-4 py-1 hover:bg-[#072009] hover:text-[#E9C46A] flex">
-                            Login
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/register"
-                              className="rounded-full border border-[#072009] px-4 py-1 hover:bg-[#072009] hover:text-[#E9C46A] flex">
-                            Register
-                        </Link>
-                    </li>
+
+                    {
+                        loggedIn ? (
+                            <li>
+                                <LogoutButton />
+                            </li>
+                        ) : (
+                            <>
+                                <li>
+                                    <Link to="/login"
+                                          className="rounded-full border border-[#072009] px-4 py-1 hover:bg-[#072009] hover:text-[#E9C46A] flex">
+                                        Login
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/register"
+                                          className="rounded-full border border-[#072009] px-4 py-1 hover:bg-[#072009] hover:text-[#E9C46A] flex">
+                                        Register
+                                    </Link>
+                                </li>
+                            </>
+                        )
+                    }
                 </ul>
             </div>
         </nav>
