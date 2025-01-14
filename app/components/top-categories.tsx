@@ -1,17 +1,8 @@
 import {Link} from "react-router";
-import {useEffect, useState} from "react";
-import type {Category} from "~/types";
-import axios from "~/lib/axios";
+import useCategories from "~/hooks/useCategories";
 
 export default function TopCategories() {
-    const [categories, setCategories] = useState<Array<Category>>([]);
-
-    useEffect(() => {
-        (async () => {
-            const categories = await axios.get('/categories/top').then(r => r.data.data);
-            setCategories(categories);
-        })()
-    }, [])
+    const { categories } = useCategories();
 
     return (
         <ul className="basis-[50%] lg:flex lg:space-x-4">
@@ -25,6 +16,7 @@ export default function TopCategories() {
                     </li>
                 ))
             }
+
             <li className="relative group">
                 <button
                     className="rounded-full lg:border border-[#072009] lg:px-4 py-1 lg:hover:bg-[#072009] hover:text-[#E9C46A] flex items-center">

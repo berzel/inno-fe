@@ -1,11 +1,9 @@
 import Logo from "~/components/logo";
 import {Link} from "react-router";
-import useCategories from "~/hooks/useCategories";
 import TopCategories from "~/components/top-categories";
 
 export default function Header() {
-    const {categories} = useCategories();
-
+    
     return (
         <nav className="flex justify-between items-center relative">
             <div className="basis-[20%]">
