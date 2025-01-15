@@ -1,17 +1,23 @@
 import {type PropsWithChildren, useEffect, useState} from "react";
-import AuthContext, {defaultContext, type User} from "~/lib/auth-context";
+import AuthContext, {type User} from "~/lib/auth-context";
 import {useNavigate} from "react-router";
 import axios from "~/lib/axios";
 
 const AuthProvider = ({ children }: PropsWithChildren) => {
     const navigate = useNavigate();
-    let [authState, setAuthState] = useState(defaultContext());
+
+    const [user, setAuthUser] = useState<User|null>(null);
+
+    const setUser = (user: User) => {
+        localStorage.setItem('auth_user', JSON.stringify(user));
+        setAuthUser(user)
+    }
 
     const login = (token: string) => {
         (async () => {
             localStorage.setItem('auth_token', token);
-            const user = await axios.get('/user').then(r => r.data)
-            setAuthState(p => ({...p, loggedIn: true, user}));
+            const user = await axios.get('/user').then(r => r.data);
+            setUser(user);
 
             const url = localStorage.getItem('intended_url') ?? '/';
             localStorage.removeItem('intended_url');
@@ -20,34 +26,24 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
     }
 
     const logout = () => {
-        console.log("Logging out...")
         localStorage.removeItem('auth_token')
-        setAuthState(p => ({...p, loggedIn: false, user: null}));
+        localStorage.removeItem('auth_user')
+        setAuthUser(null)
         navigate('/');
     }
 
-    const setUser = (user: User) => {
-        setAuthState(p => ({...p, user}))
-    }
+
 
     useEffect(() => {
         (async () => {
-            let user = null;
-            const token = localStorage?.getItem('auth_token');
-
-            if (token) {
-                user = await axios.get('/user').then(r => r.data)
-            }
-
-            setAuthState({
-                loggedIn: !!token,
-                login, logout, user, setUser
-            })
+            let jsonUser = localStorage?.getItem('auth_user');
+            let user: User|null = jsonUser ? JSON.parse(jsonUser) : null;
+            setAuthUser(user)
         })()
     }, []);
 
     return (
-        <AuthContext.Provider  value={authState}>
+        <AuthContext.Provider  value={{login, logout, loggedIn: !!user, setUser, user}}>
             {children}
         </AuthContext.Provider>
     )
