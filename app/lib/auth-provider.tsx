@@ -5,7 +5,6 @@ import axios from "~/lib/axios";
 
 const AuthProvider = ({ children }: PropsWithChildren) => {
     const navigate = useNavigate();
-
     const [user, setAuthUser] = useState<User|null>(null);
 
     const setUser = (user: User) => {
@@ -31,8 +30,6 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
         setAuthUser(null)
         navigate('/');
     }
-
-
 
     useEffect(() => {
         (async () => {
